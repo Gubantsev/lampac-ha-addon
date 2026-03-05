@@ -18,6 +18,6 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 # Копируем Lampac из официального образа
-COPY --from=ghcr.io/lampac-talks/lampac:155.1-ce-amd64-finality /home /app
+COPY --from=ghcr.io/lampac-talks/lampac /home /app
 
 EXPOSE 9118
