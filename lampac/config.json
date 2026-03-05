@@ -2,20 +2,14 @@
   "name": "Lampac",
   "version": "155.1-ce",
   "slug": "lampac",
-  "description": "Lampac .NET service",
+  "description": "Lampac addon",
   "startup": "services",
   "boot": "auto",
-  "init": false,
   "arch": ["amd64"],
+  "ingress": false,
   "ports": {
     "9118/tcp": 9118
   },
-  "ports_description": {
-    "9118/tcp": "Lampac Web Interface"
-  },
-  "map": ["addon_config"],
   "options": {},
-  "schema": {},
-  "ingress": false,
-  "panel_icon": "mdi:server"
+  "schema": {}
 }
