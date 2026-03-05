@@ -1,0 +1,25 @@
+{
+  "name": "Lampac",
+  "version": "155.1-ce",
+  "slug": "lampac",
+  "description": "Lampac .NET service",
+  "startup": "services",
+  "boot": "auto",
+  "ingress": true,
+  "ingress_port": 9118,
+  "panel_icon": "mdi:server",
+  "panel_title": "Lampac",
+  "arch": ["amd64"],
+  "ports": {
+    "9118/tcp": 9118
+  },
+  "ports_description": {
+    "9118/tcp": "Lampac Web Interface"
+  },
+  "host_network": false,
+  "privileged": [],
+  "full_access": false,
+  "map": [],
+  "options": {},
+  "schema": {}
+}
