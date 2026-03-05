@@ -5,11 +5,13 @@
   "description": "Lampac addon",
   "startup": "services",
   "boot": "auto",
+  "init": true,
   "arch": ["amd64"],
-  "ingress": false,
   "ports": {
     "9118/tcp": 9118
   },
+  "map": ["addon_config"],
+  "ingress": false,
   "options": {},
   "schema": {}
 }
