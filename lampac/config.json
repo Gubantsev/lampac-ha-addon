@@ -5,10 +5,7 @@
   "description": "Lampac .NET service",
   "startup": "services",
   "boot": "auto",
-  "ingress": true,
-  "ingress_port": 9118,
-  "panel_icon": "mdi:server",
-  "panel_title": "Lampac",
+  "init": false,
   "arch": ["amd64"],
   "ports": {
     "9118/tcp": 9118
@@ -16,10 +13,9 @@
   "ports_description": {
     "9118/tcp": "Lampac Web Interface"
   },
-  "host_network": false,
-  "privileged": [],
-  "full_access": false,
-  "map": [],
+  "map": ["addon_config"],
   "options": {},
-  "schema": {}
+  "schema": {},
+  "ingress": false,
+  "panel_icon": "mdi:server"
 }

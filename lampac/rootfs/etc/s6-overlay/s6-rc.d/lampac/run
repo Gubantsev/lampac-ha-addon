@@ -1,0 +1,13 @@
+#!/usr/bin/with-contenv bashio
+
+mkdir -p /data/module
+
+if [ ! -f /data/module/repository.yaml ]; then
+    echo "repositories: []" > /data/module/repository.yaml
+fi
+
+# Симлинк чтобы Lampac видел нужную структуру
+mkdir -p /app/module
+ln -sf /data/module/repository.yaml /app/module/repository.yaml
+
+exec /usr/share/dotnet/dotnet /app/Lampac.dll
