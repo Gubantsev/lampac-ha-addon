@@ -1,23 +1,14 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.19
-FROM ${BUILD_FROM}
+# Используем официальный образ Lampac
+FROM lampac-talks/lampac:latest
 
-ENV DOTNET_RUNNING_IN_CONTAINER=true \
-    ASPNETCORE_URLS=http://0.0.0.0:9118
+# Копируем только скрипт запуска (хотя он может и не понадобиться,
+# если в образе уже правильно настроен ENTRYPOINT или CMD)
+COPY run.sh /
+RUN chmod a+x /run.sh
 
-RUN apk add --no-cache \
-    dotnet8-runtime \
-    icu-libs \
-    chromium \
-    nss \
-    freetype \
-    harfbuzz \
-    ttf-freefont \
-    ca-certificates
-
-WORKDIR /app
-
-COPY --from=ghcr.io/lampac-talks/lampac:155.1-ce-amd64-finality /home /app
-
+# Указываем порт
 EXPOSE 9118
 
-CMD ["/usr/share/dotnet/dotnet", "/app/Lampac.dll"]
+# Используем команду из базового образа или переопределяем её
+# Если в базовом образе уже есть правильная команда, эту строку можно не писать.
+# CMD [ "./run.sh" ]
